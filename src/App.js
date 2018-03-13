@@ -26,6 +26,10 @@ const reducer = (state, action) => {
 
 const store = createStore(reducer, []);
 
+const unsubscribe = store.subscribe(() => {
+  console.log(store.getState());
+});
+
 store.dispatch({
   type: 'TODO_ADD',
   todo: { id: '0', name: 'learn redux', completed: false },
